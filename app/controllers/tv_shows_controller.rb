@@ -3,6 +3,9 @@ class TvShowsController < ApplicationController
   before_action :load_tv_show, except: [:search]
 
   def show
+    all_episodes = @tv_show.seasons.map {|s| s.episodes }.flatten
+    all_rating_not_zero = all_episodes.map { |e| e.rating.rating }.compact
+    @average = (all_rating_not_zero.reduce(:+).to_f / all_rating_not_zero.size).round(2)
   end
 
   def search

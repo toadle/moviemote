@@ -188,3 +188,15 @@ section.black {
 .padding-non{
   padding: 0px;
 }
+.btn {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-width: 2px;
+  border-radius: 0px;
+  padding: 20px 30px; 
+
+  &:hover {
+    background: none;
+  }
+}

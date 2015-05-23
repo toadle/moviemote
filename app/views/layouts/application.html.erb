@@ -6,6 +6,15 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:500,900,400italic,300,700,400' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript"
+        src="https://www.google.com/jsapi?autoload={
+          'modules':[{
+            'name':'visualization',
+            'version':'1',
+            'packages':['corechart']
+          }]
+        }">
+  </script>
   <%= area :head %>
 </head>
 <body>
