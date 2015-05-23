@@ -22,8 +22,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass', '~> 3.2.0'
-
+gem 'simple_form'
 gem 'imdb', '~> 0.8'
+gem 'nestive', '~> 0.5'
 
 gem 'twitter'
 gem 'omniauth-twitter'

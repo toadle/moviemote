@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  resources :tv_show
+  resources :watch_list_entries do
+    collection do
+      get :add
+    end
+  end
+
+  resources :tv_shows do
+    collection do
+      post :search
+    end
+  end
 
   get '/auth/:provider/callback', to: 'users#create'
 

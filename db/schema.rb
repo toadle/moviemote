@@ -17,6 +17,12 @@ ActiveRecord::Schema.define(version: 20150523122858) do
     t.text     "auth_hash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+  create_table "watch_list_entries", force: :cascade do |t|
+    t.string   "imdb_identifier"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
