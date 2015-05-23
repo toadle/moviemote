@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'users#create'
 
+  get 'components' => 'home#components'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

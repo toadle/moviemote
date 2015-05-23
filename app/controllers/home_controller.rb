@@ -5,5 +5,8 @@ class HomeController < ActionController::Base
 
   def index
   end
+
+  def components
+  end
   
 end
