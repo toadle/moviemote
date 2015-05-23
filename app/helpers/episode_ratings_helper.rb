@@ -1,0 +1,2 @@
+module EpisodeRatingsHelper
+end

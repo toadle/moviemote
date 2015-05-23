@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def add_to_watch_list_button(imdb_identifier)
-    render 'shared/add_to_watch_list', imdb_identifier: imdb_identifier
+  def add_to_watch_list_button(tmdb_identifier)
+    render 'shared/add_to_watch_list', tmdb_identifier: tmdb_identifier
   end
 
   def current_user

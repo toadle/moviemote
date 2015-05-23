@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523140837) do
+ActiveRecord::Schema.define(version: 20150523161256) do
+
+  create_table "episode_ratings", force: :cascade do |t|
+    t.integer  "tmdb_identifier"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -23,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150523140837) do
   end
 
   create_table "watch_list_entries", force: :cascade do |t|
-    t.string   "imdb_identifier"
+    t.string   "tmdb_identifier"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

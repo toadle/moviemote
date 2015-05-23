@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users
+  resources :episode_ratings
 
   resources :watch_list_entries do
     collection do

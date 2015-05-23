@@ -1,24 +1,44 @@
-<h1><%= @tv_show.name %></h1>
-
-<% @tv_show.seasons.each do |season| %>
-<table class="table table-striped table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Staffel <%= season.season_number %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% season.episodes.each do |episode| %>
-    <tr>
-      <td><%= episode.name %></td>
-      <td><a href="#" class="btn btn-default">Habe ich gesehen</a></td>
-      <td><a href="#" class="btn btn-default">Will ich sehen</a></td>
-      <td><a href="#" class="btn btn-default">Sehe </a></td>
-    </tr>
-  <% end %>
-  </tbody>
-<% end %>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= @tv_show.backdrop_path %>)">
+        <span class="title"><%= @tv_show.name %></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <% @tv_show.seasons.each do |season| %>
+        <table class="margin-top-md table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Staffel <%= season.season_number %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% season.episodes.each do |episode| %>
+            <tr>
+              <td><%= episode.name %></td>
+              <td>
+                <%= simple_form_for episode.rating, remote: true do |f| %>
+                  <%= f.input :tmdb_identifier, as: :hidden %>
+                  <%= f.input :rating, label: false, input_html: {type: "rating", class: "hidden"} %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+</div>

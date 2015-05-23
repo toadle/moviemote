@@ -12,12 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-rating.min
 
 
 $( document ).ready(function() {
 
   $('.poster_background[data-href]').on('click', function (e) {
     window.location = $(this).data('href');
+  });
+
+  $('input[type=rating]').rating({
+    start: 0,
+    stop: 10
+  }).on('change', function(){
+    $(this).closest('form').submit();
   });
 
 });
