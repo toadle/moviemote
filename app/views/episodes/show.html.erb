@@ -46,23 +46,30 @@
 
 		          function drawChart() {
 
-		          var data = google.visualization.arrayToDataTable([
+								var sleep = Math.floor((Math.random() * 5));
+			          var walk =Math.floor((Math.random() * 3) );
+			          var Watch =Math.floor((Math.random() * 10) + 1);
+			          var eat = Math.floor((Math.random() * 2) );
+
+		            var data = google.visualization.arrayToDataTable([
 			          ['Task', 'Hours per Day'],
-			          ['Eat',      1],
-			          ['Watch Episode', 1],
-			          ['Sleep',    2],
-					      ['walk', 2]
+			          ['Eat',      eat],
+			          ['Watch Episode', Watch],
+			          ['Sleep',    sleep],
+					      ['walk', walk]
 		          ]);
 		          var options = {
 			          title: 'My Activities'
 		          };
 
+		          function myFunction() {
+			          var x = document.getElementById("demo")
+			          x.innerHTML = Math.floor((Math.random() * 100) + 1);
+		          }
 		          var chart = new google.visualization.PieChart(document.getElementById('vis_div'));
 
 		          chart.draw(data, options);
 	          }
-
-
 		          /* dritte version*/
 	          google.load('visualization', '1', {packages: ['corechart', 'line']});
 	          google.setOnLoadCallback(drawLineColors);
