@@ -26,6 +26,9 @@ gem 'simple_form'
 gem 'imdb', '~> 0.8'
 gem 'nestive', '~> 0.5'
 
+gem 'twitter'
+gem 'omniauth-twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

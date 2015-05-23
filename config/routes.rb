@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/auth/:provider/callback', to: 'users#create'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
