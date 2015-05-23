@@ -11,19 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523133043) do
+ActiveRecord::Schema.define(version: 20150523122858) do
 
   create_table "users", force: :cascade do |t|
     t.text     "auth_hash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "watch_list_entries", force: :cascade do |t|
-    t.string   "imdb_identifier"
-    t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
 end
