@@ -1,11 +1,11 @@
 <section id="home" class="stage" style="background-image: url(http://stig.bestlooker.pro/images/full-width-images/section-bg-1.jpg); background-position: 50% 0px;">
-    <div style="height: 800px;">  
-      <div class="container"> 
+    <div style="height: 800px;">
+      <div class="container">
         <%=image_tag "moviemote-logo.svg", class:"logo block-center", width:"200" %>
         <h1 class="text-center margin-top-lg">
-          Your heart <strong>beats</strong><br> for <strong>movies</strong>? 
+          Your heart <strong>beats</strong><br> for <strong>movies</strong>?
         </h1>
-        <%= link_to "Our's too - Join us!", '#', class: "btn btn-primary btn-lg text-center btn-block" %>       
+        <%= render 'shared/login_logout_twitter_link' %>
       </div>
     </div>
 </section>
