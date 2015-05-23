@@ -12,3 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+
+$( document ).ready(function() {
+
+  $('.poster_background[data-href]').on('click', function (e) {
+    window.location = $(this).data('href');
+  });
+
+});

@@ -1,7 +1,7 @@
 <div class="row">
   <% @watch_list.each do |entry| %>
-    <div class="col-md-3">
-      <%= link_to entry.name, tv_show_path(entry.id) %>
+    <div data-href="<%= tv_show_path(entry.id) %>" class="col-md-3 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= entry.poster_path %>)">
+      <span class="title"><%= entry.name %></span>
     </div>
   <% end %>
 </div>
