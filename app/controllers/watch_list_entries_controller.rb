@@ -8,7 +8,7 @@ class WatchListEntriesController < ApplicationController
 private
 
   def watch_list_entry_params
-    params.permit(:imdb_identifier, :user_id)
+    params.permit(:tmdb_identifier, :user_id)
   end
 
 end
