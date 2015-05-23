@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   get '/auth/:provider/callback', to: 'users#create'
+  get "/signout" => "users#session_destroy", as: :signout
 
   get 'components' => 'home#components'
 
