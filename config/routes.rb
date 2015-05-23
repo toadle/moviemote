@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :episodes
   resources :episode_ratings
 
   resources :watch_list_entries do
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
     collection do
       post :search
     end
+    resources :episodes
   end
 
   get '/auth/:provider/callback', to: 'users#create'

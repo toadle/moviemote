@@ -19,6 +19,7 @@ private
 
   def load_tv_show
     @tv_show = OpenStruct.new Tmdb::TV.detail(params[:id])
+
     @tv_show.seasons = @tv_show.seasons.map { |season| OpenStruct.new season }
     @tv_show.seasons.each do |s|
       s.episodes = Tmdb::Season.detail(params[:id], s.season_number)["episodes"].map do |e| 
