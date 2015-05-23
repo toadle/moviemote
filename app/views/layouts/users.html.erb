@@ -1,0 +1,17 @@
+<%= extends :application do %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= area :sidebar do %>
+        <a href="#">Watchlist</a>
+        <%= simple_form_for :tv_show_search, url: search_tv_shows_path do |f| %>
+          <%= f.input :query %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <%= area :content do %>
+        <%= yield %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

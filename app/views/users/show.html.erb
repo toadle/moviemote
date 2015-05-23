@@ -1,0 +1,7 @@
+<div class="row">
+  <% @watch_list.each do |entry| %>
+    <div class="col-md-3">
+      <%= link_to entry.name, tv_show_path(entry.id) %>
+    </div>
+  <% end %>
+</div>
