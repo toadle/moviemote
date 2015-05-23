@@ -1,0 +1,7 @@
+<%= extends :application do %>
+  TV Shows
+  <%= simple_form_for :tv_show_search, url: search_tv_shows_path do |f| %>
+    <%= f.input :query %>
+  <% end %>
+  <%= yield %>
+<% end %>
