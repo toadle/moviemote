@@ -26,6 +26,8 @@ gem 'simple_form'
 gem 'themoviedb'
 gem 'nestive', '~> 0.5'
 
+gem 'bootstrap-tagsinput-rails'
+
 gem 'twitter'
 gem 'omniauth-twitter'
 

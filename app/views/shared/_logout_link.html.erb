@@ -1,4 +1,4 @@
 <% if logged_in? %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign out", class: "text-center btn-block" %>
+  <%#= "Welcome #{current_user.name}!" %>
+  <%= link_to "Sign out", signout_path, {class: "btn-block pull-right"} %>
 <% end %>

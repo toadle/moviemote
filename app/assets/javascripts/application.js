@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-rating.min
+//= require bootstrap-tagsinput
 
 
 $( document ).ready(function() {
@@ -26,6 +27,10 @@ $( document ).ready(function() {
     stop: 10
   }).on('change', function(){
     $(this).closest('form').submit();
+  });
+
+  $('.user_watchlist').on('click', function(e) {
+    window.location = $(this).data('href');
   });
 
 });
