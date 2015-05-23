@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   protected
 
   def load_watch_list
-    @watch_list = WatchListEntry.where(user_id: params[:id]).map { |entry| OpenStruct.new(Tmdb::TV.detail(entry.imdb_identifier)) }
+    @watch_list = WatchListEntry.where(user_id: params[:id]).map { |entry| OpenStruct.new(Tmdb::TV.detail(entry.tmdb_identifier)) }
   end
 
 end
