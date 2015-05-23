@@ -2,8 +2,9 @@
   <div class="row">
     <div class="col-md-3">
       <%= area :sidebar do %>
-        <%= render 'shared/logout_link' %>
-        <a href="#">Watchlist</a>
+        <div><%= render 'shared/logout_link' %></div>
+        <div class="user_image"><%= image_tag current_user.image %></div>
+        <a class="user_watchlist" href="<%= user_path(current_user) %>">Watchlist</a>
         <%= simple_form_for :tv_show_search, url: search_tv_shows_path do |f| %>
           <%= f.input :query %>
         <% end %>
