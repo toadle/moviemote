@@ -25,6 +25,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'imdb', '~> 0.8'
 
+gem 'twitter'
+gem 'omniauth-twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
