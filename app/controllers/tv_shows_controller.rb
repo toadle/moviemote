@@ -1,6 +1,6 @@
 class TvShowsController < ApplicationController
 
-  before_action :load_tv_show
+  before_action :load_tv_show, except: [:search]
 
   def show
   end
