@@ -44,4 +44,10 @@ $( document ).ready(function() {
     $(this).tab('show');
   });
 
+  if($('.nav.nav-tabs').length>0) {
+    $('.nav.nav-tabs > li').first().find('a').click();
+  }
+
+
+
 });
