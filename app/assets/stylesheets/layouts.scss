@@ -118,10 +118,9 @@
 }
 
 .btn-primary {
-  color: white;
+  color: darken($water_leaf, 50%);
   border: 2px solid $water_leaf;
-  background-color: rgba($water_leaf, 0.5);
-
+  background-color: $water_leaf;
   &:hover {
     border: 2px solid darken($water_leaf, 30%);
     background-color: $water_leaf;
