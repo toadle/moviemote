@@ -7,34 +7,45 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <% @tv_show.seasons.each do |season| %>
-        <table class="margin-top-md table table-striped table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Staffel <%= season.season_number %></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          <% season.episodes.each do |episode| %>
-            <tr>
-              <td><%= episode.name %></td>
-              <td>
-                <%= simple_form_for episode.rating, remote: true do |f| %>
-                  <%= f.input :tmdb_identifier, as: :hidden %>
-                  <%= f.input :rating, label: false, input_html: {type: "rating", class: "hidden"} %>
-                <% end %>
-                <%= link_to "Episode Details", tv_show_episode_path(genre_id: @tv_show.genres.first["id"],
-                                                                    tv_show_id: @tv_show.id,
-                                                                    episode_number:episode.episode_number,
-                                                                    season_number: episode.season_number
-                                                                    ) %>
-              </td>
-            </tr>
-          <% end %>
-          </tbody>
-        <% end %>
-        </table>
+        <div role="tabpanel" class="margin-top-md">
+          <ul class="nav nav-tabs" role="tablist">
+            <% @tv_show.seasons.each do |season| %>
+
+              <li role="presentation" ><a href="#season_<%= season.season_number %>" aria-controls="season_<%= season.season_number %>" role="tab" data-toggle="tab">Staffel <%= season.season_number %></a></li>
+            <% end %>
+          </ul>
+
+          <div class="tab-content">
+            <% @tv_show.seasons.each do |season| %>
+              <div role="tabpanel" class="tab-pane fade" id="season_<%= season.season_number %>">
+                <table class="table table-striped table-bordered table-hover">
+                  <tbody>
+                    <% season.episodes.each do |episode| %>
+                      <tr>
+                        <td><%= link_to episode.name, tv_show_episode_path(genre_id: @tv_show.genres.first["id"],
+                                                                              tv_show_id: @tv_show.id,
+                                                                              episode_number:episode.episode_number,
+                                                                              season_number: episode.season_number
+                                                                              ) %></td>
+                        <td>
+                          <%= simple_form_for episode.rating, remote: true do |f| %>
+                            <%= f.input :tmdb_identifier, as: :hidden %>
+                            <%= f.input :rating, label: false, input_html: {type: "rating", class: "hidden"} %>
+                          <% end %>
+                          <%= link_to "Episode Details", tv_show_episode_path(genre_id: @tv_show.genres.first["id"],
+                                                                              tv_show_id: @tv_show.id,
+                                                                              episode_number:episode.episode_number,
+                                                                              season_number: episode.season_number
+                                                                              ) %>
+                        </td>
+                      </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require bootstrap-rating.min
 //= require bootstrap-tagsinput
 
@@ -31,6 +32,11 @@ $( document ).ready(function() {
 
   $('.user_watchlist').on('click', function(e) {
     window.location = $(this).data('href');
+  });
+
+  $('.nav.nav-tabs').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
   });
 
 });
