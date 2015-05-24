@@ -1,5 +1,6 @@
 //* COLOR VARIABLES *//
 $starship:          #97FFDC;
+$cerise:            #EB2F62;
 $water_leaf:        #D5FF4D;
 
 
@@ -10,15 +11,25 @@ body {
 }
 
 //* BUTTONS *//
+.btn {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-width: 2px;
+  border-radius: 0px;
+  padding: 20px 30px;
+  background-color: transparent;
+  color: #fff;
+}
 .btn-primary {
-  background: $water_leaf;
+  background-color: $water_leaf;
   border: 0px;
-  color: #000;
+  color: darken($water_leaf, 50%);
   border-radius: 0px;
   padding: 20px;
   &:hover {
     background: darken($water_leaf, 10%);
-    color: #000;
+    color: darken($water_leaf, 50%);
   }
 }
 
@@ -188,3 +199,7 @@ section.black {
 .padding-non{
   padding: 0px;
 }
+
+
+
+

@@ -1,9 +1,11 @@
 <div class="row">
   <h1 class="page-title-overlay">Suchergebnisse für <span class="label label-default"><%= @search_query %></span></h1>
   <% @results.each do |result| %>
-    <div data-href="<%= add_watch_list_entries_path(tmdb_identifier: result.id, user_id: current_user.id) %>" class="col-md-3 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= result.poster_path %>)">
-      <span class="btn btn-primary btn-control block-center" style="margin-top: 150px">Hinzufügen</span>
-      <span class="title"><%= result.name %></span>
+    <div data-href="<%= add_watch_list_entries_path(tmdb_identifier: result.id, user_id: current_user.id) %>" class="col-md-4 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= result.poster_path %>)">
+      <span class="overlay overlay-search">
+        <span class="title"><%= result.name %></span>
+        <span class="btn btn-primary btn-control block-center margin-top-md">Hinzufügen</span>
+      </span>
     </div>
   <% end %>
 </div>

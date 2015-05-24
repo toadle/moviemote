@@ -1,7 +1,10 @@
 <div class="row">
   <% @watch_list.each do |entry| %>
-    <div data-href="<%= tv_show_path(entry.id) %>" class="col-md-3 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= entry.poster_path %>)">
-      <span class="title"><%= entry.name %></span>
-    </div>
+      <div data-href="<%= tv_show_path(entry.id) %>" class="col-md-4 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= entry.poster_path %>)">
+        <span class="overlay">
+          <span class="title"><%= entry.name %></span>
+          <span class="btn btn-primary btn-control block-center margin-top-md">Zur Übersichtsseite</span>
+        </span>
+      </div>
   <% end %>
 </div>
