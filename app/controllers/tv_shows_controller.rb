@@ -17,6 +17,7 @@ class TvShowsController < ApplicationController
     @results = @search.fetch.map { |result| OpenStruct.new(result) }[0..9]
   end
 
+
 private
 
   def load_tv_show

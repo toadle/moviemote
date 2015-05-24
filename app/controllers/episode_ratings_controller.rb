@@ -9,10 +9,13 @@ class EpisodeRatingsController < ApplicationController
     rating.update_attributes(episode_ratings_params)
   end
 
+
+
 private 
 
   def episode_ratings_params
     params.require(:episode_rating).permit(:rating, :tmdb_identifier)
   end
+
 
 end

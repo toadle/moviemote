@@ -8,6 +8,8 @@ class EpisodesController < ApplicationController
   def show
     @episode = OpenStruct.new Tmdb::Episode.detail(params[:tv_show_id],params[:season_number],params[:episode_number])
     @genre = Tmdb::Genre.detail(params[:genre_id])
+    @tv_show = OpenStruct.new Tmdb::TV.detail(params[:tv_show_id])
+    @rating= current_user.episode_ratings.where(tmdb_identifier: @episode.id).last
   end
 
 

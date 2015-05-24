@@ -2,7 +2,9 @@
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-12 poster_background" style="">
-        <span class="title"><%= @episode.name %></span>
+        <div class="col-md-12 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= @episode.still_path.present? ? @episode.still_path : @tv_show.backdrop_path %>)">
+          <span class="title"><%= @episode.name %></span>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -10,8 +12,11 @@
         <table class="margin-top-md table table-striped table-bordered table-hover">
           <thead>
           <tr>
+            <h3><%= @tv_show.name %></h3>
+          </tr>
+          <tr>
             <th>Genre</th>
-            <th>Staffel info</th>
+            <th>Episode Info</th>
           </tr>
           </thead>
           <tbody>
@@ -20,96 +25,155 @@
               <%= @genre.name %>
             </td>
             <td>
-              <%=@episode.overview %>
+              <%= @episode.overview %>
             </td>
           </tr>
           </tbody>
         </table>
+      </div>
     </div>
-    </div>
-    </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class="gradient_background" id="episode_graph"></div>
-
-          <div id="vis_div" style="width: 600px; height: 400px;"></div>
-          <div id="vis_div_g"></div>
-          <script type="text/javascript">
-
-
-
-
-
-
-	          google.load("visualization", "1", {packages:["corechart"]});
-	          google.setOnLoadCallback(drawChart);
-
-		          function drawChart() {
-
-								var sleep = Math.floor((Math.random() * 5));
-			          var walk =Math.floor((Math.random() * 3) );
-			          var Watch =Math.floor((Math.random() * 10) + 1);
-			          var eat = Math.floor((Math.random() * 2) );
-
-		            var data = google.visualization.arrayToDataTable([
-			          ['Task', 'Hours per Day'],
-			          ['Eat',      eat],
-			          ['Watch Episode', Watch],
-			          ['Sleep',    sleep],
-					      ['walk', walk]
-		          ]);
-		          var options = {
-			          title: 'My Activities'
-		          };
-
-		          function myFunction() {
-			          var x = document.getElementById("demo")
-			          x.innerHTML = Math.floor((Math.random() * 100) + 1);
-		          }
-		          var chart = new google.visualization.PieChart(document.getElementById('vis_div'));
-
-		          chart.draw(data, options);
-	          }
-		          /* dritte version*/
-	          google.load('visualization', '1', {packages: ['corechart', 'line']});
-	          google.setOnLoadCallback(drawLineColors);
-
-	          function drawLineColors() {
-		          var data = new google.visualization.DataTable();
-		          data.addColumn('number', 'X');
-		          //data.addColumn('number', 'Dogs');
-		          data.addColumn('number', 'Heartbeat');
-
-		          data.addRows([
-			          [0,  0],  [1, 10],  [2, 23],  [3, 27],  [4, 18],  [5, 9],
-			          [6,  11], [7, 27],  [8, 33],  [9, 40], [10, 32], [11, 10],
-			          [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
-			          [18, 10], [19, 30], [20, 42], [21, 55], [22, 56], [23, 57],
-			          [24, 60], [25, 50], [26, 10], [27, 51], [28, 49], [29, 53],
-			          [30, 55], [31, 60], [32, 20], [33, 59], [34, 62], [35, 65],
-			          [36, 62], [37, 30], [38, 55], [39, 20], [40, 64], [41, 65],
-			          [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
-			          [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
-			          [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
-			          [60, 20], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
-			          [66, 70], [67, 21], [68, 75], [69, 30]
-		          ]);
-
-		          var options = {
-			          hAxis: {
-				          title: 'Time'
-			          },
-			          vAxis: {
-				          title: 'Heartbeat'
-			          },
-			          colors: ['#a52714', '#097138']
-		          };
-
-		          var chart = new google.visualization.LineChart(document.getElementById('episode_graph'));
-		          chart.draw(data, options);
-	          }
-
-          </script>
-        </div>
   </div>
+
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Episode-Rating </h2>
+        <% if @rating.present? %>
+          <%= @rating.rating %>
+        <% else %>
+          <p>Du hast noch für diese Episode noch kein Rating abgegeben.</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="gradient_background" id="episode_graph"></div>
+    <div id="vis_div" style="width: 600px; height: 400px;"></div>
+    <div id="vis_div_g"></div>
+    <script type="text/javascript">
+	    google.load("visualization", "1", {packages: ["corechart"]});
+	    google.setOnLoadCallback(drawChart);
+	    function drawChart() {
+		    var sleep = Math.floor((Math.random() * 5));
+		    var walk = Math.floor((Math.random() * 3));
+		    var Watch = Math.floor((Math.random() * 10) + 1);
+		    var eat = Math.floor((Math.random() * 2));
+		    var data = google.visualization.arrayToDataTable([
+			    ['Task', 'Hours per Day'],
+			    ['Eat', eat],
+			    ['Watch Episode', Watch],
+			    ['Sleep', sleep],
+			    ['walk', walk]
+		    ]);
+		    var options = {
+			    title: 'My Activities'
+		    };
+
+		    function myFunction() {
+			    var x = document.getElementById("demo")
+			    x.innerHTML = Math.floor((Math.random() * 100) + 1);
+		    }
+
+		    var chart = new google.visualization.PieChart(document.getElementById('vis_div'));
+
+		    chart.draw(data, options);
+	    }
+	    /* dritte version*/
+	    google.load('visualization', '1', {packages: ['corechart', 'line']});
+	    google.setOnLoadCallback(drawLineColors);
+
+	    function drawLineColors() {
+		    var data = new google.visualization.DataTable();
+		    data.addColumn('number', 'X');
+		    //data.addColumn('number', 'Dogs');
+		    data.addColumn('number', 'Heartbeat');
+
+		    data.addRows([
+			    [0, 0],
+			    [1, 10],
+			    [2, 23],
+			    [3, 27],
+			    [4, 18],
+			    [5, 9],
+			    [6, 11],
+			    [7, 27],
+			    [8, 33],
+			    [9, 40],
+			    [10, 32],
+			    [11, 10],
+			    [12, 30],
+			    [13, 40],
+			    [14, 42],
+			    [15, 47],
+			    [16, 44],
+			    [17, 48],
+			    [18, 10],
+			    [19, 30],
+			    [20, 42],
+			    [21, 55],
+			    [22, 56],
+			    [23, 57],
+			    [24, 60],
+			    [25, 50],
+			    [26, 10],
+			    [27, 51],
+			    [28, 49],
+			    [29, 53],
+			    [30, 55],
+			    [31, 60],
+			    [32, 20],
+			    [33, 59],
+			    [34, 62],
+			    [35, 65],
+			    [36, 62],
+			    [37, 30],
+			    [38, 55],
+			    [39, 20],
+			    [40, 64],
+			    [41, 65],
+			    [42, 63],
+			    [43, 66],
+			    [44, 67],
+			    [45, 69],
+			    [46, 69],
+			    [47, 70],
+			    [48, 72],
+			    [49, 68],
+			    [50, 66],
+			    [51, 65],
+			    [52, 67],
+			    [53, 70],
+			    [54, 71],
+			    [55, 72],
+			    [56, 73],
+			    [57, 75],
+			    [58, 70],
+			    [59, 68],
+			    [60, 20],
+			    [61, 60],
+			    [62, 65],
+			    [63, 67],
+			    [64, 68],
+			    [65, 69],
+			    [66, 70],
+			    [67, 21],
+			    [68, 75],
+			    [69, 30]
+		    ]);
+
+		    var options = {
+			    hAxis: {
+				    title: 'Time'
+			    },
+			    vAxis: {
+				    title: 'Heartbeat'
+			    },
+			    colors: ['#a52714', '#097138']
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('episode_graph'));
+		    chart.draw(data, options);
+	    }
+
+    </script>
   </div>
+</div>
+</div>
