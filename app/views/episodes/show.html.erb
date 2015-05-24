@@ -71,29 +71,59 @@
           </div>
         </div>
       <% else %>
-      <div class="col-md-12">
+ 	<div class="col-md-12">
         <h3>Dein Puls & Deine Aktivität</h3>
-      <div id="episode_graph" class="gradient_background"></div>
-      <div id="vis_div_activity" style="width: 600px; height: 400px;"></div>
-      <script type="text/javascript">
-  	    google.load("visualization", "1", {packages: ["corechart"]});
-  	    google.setOnLoadCallback(drawChart);
-  	    function drawChart() {
-  		    var sleep = Math.floor((Math.random() * 5));
-  		    var walk = Math.floor((Math.random() * 3));
-  		    var Watch = Math.floor((Math.random() * 10) + 1);
-  		    var eat = Math.floor((Math.random() * 2));
-  		    var data = google.visualization.arrayToDataTable([
-  			    ['Task', 'Hours per Day'],
-  			    ['Eat', eat],
-  			    ['Watch Episode', Watch],
-  			    ['Sleep', sleep],
-  			    ['walk', walk]
-  		    ]);
-  		    var options = {
-  			    title: 'My Activities',
-  			    colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
-  		    };
+    <div class="gradient_background" id="episode_graph"></div>
+    <div class="" id="vis_div_activity" style="width: 400px; height: 400px;"></div>
+    <script type="text/javascript">
+	    google.load("visualization", "1", {packages: ["corechart"]});
+	    google.setOnLoadCallback(drawChart);
+
+	    function drawChart() {
+		    var sleep = Math.floor((Math.random() * 5));
+		    var walk = Math.floor((Math.random() * 3));
+		    var Watch = Math.floor((Math.random() * 10) + 1);
+		    var eat = Math.floor((Math.random() * 2));
+		    var data = google.visualization.arrayToDataTable([
+			    ['Task', 'Hours per Day'],
+			    ['Eat', eat],
+			    ['Watch Episode', Watch],
+			    ['Sleep', sleep],
+			    ['walk', walk]
+		    ]);
+		    var options = {
+			    colors: ['#D5FF4D', '#a6cc2a', '#bbe829', '#8aad18', '#8fb21e'],
+			    backgroundColor: 'transparent',
+			    height: 300,
+			    series: {
+				    0: {
+					    color: '#fff',
+					    lineWidth: '3'
+				    }
+			    },
+			    animation: {
+				    duration: 1000,
+				    startup: true
+			    },
+			    chartArea: {
+				    width:'90%',
+				    height:'90%'
+			    },
+			    legend: {
+				    position: 'none'
+			    },
+			    hAxis: {
+				    baselineColor: '#cfcfcf'
+			    },
+			    vAxis: {
+				    gridlines: {
+					    color: 'transparent'
+				    },
+				    textPosition: 'none',
+				    minValue: 0,
+				    baselineColor: '#cfcfcf'
+			    }
+		    }
 
   		    var chart = new google.visualization.PieChart(document.getElementById('vis_div_activity'));
   		    chart.draw(data, options);
