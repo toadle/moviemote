@@ -8,21 +8,21 @@
               <%= image_tag current_user.image, width: '100%', class: 'img-responsive' %>
             </div>
 
-            <button type="button" class="btn btn-default"></button>
-            <button type="button" class="btn btn-default user_watchlist" data-href="<%= user_path(current_user) %>">Wishlist</button>
-            <button type="button" class="btn btn-default"></button>
-            <button type="button" class="btn btn-default">What i see before</button>
-            <button type="button" class="btn btn-default"></button>
-            <button type="button" class="btn btn-default">
-              <div>Loved categories
-                <input type="text" data-role="tagsinput" value="Bankrobber, Gangsterseries, Politicaldrama"/>
-              </div>
+            <div class="margin-top-md">
+              <button type="button" class="btn btn-default user_watchlist block-center" data-href="<%= user_path(current_user) %>">Wishlist</button>
+            </div>
+            <div class="margin-top-md">
+              <button type="button" class="block-center btn btn-default">What i see before</button>
+            </div>
+            <div class="text-center margin-top-md">Loved categories
+              <input type="text" data-role="tagsinput" value="Bankrobber, Gangsterseries, Politicaldrama"/>
+            </div>
 
-            </button>
-
-            <%= simple_form_for :tv_show_search, url: search_tv_shows_path do |f| %>
-              <%= f.input :query %>
-            <% end %>
+            <div class="margin-top-md">
+              <%= simple_form_for :tv_show_search, url: search_tv_shows_path do |f| %>
+                <%= f.input :query, label: "Neue Serien hinzufügen", placeholder: "Suche nach Serien...", input_html: {class: "input-lg"} %>
+              <% end %>
+            </div>
           <% end %>
           </div>
     </div>
