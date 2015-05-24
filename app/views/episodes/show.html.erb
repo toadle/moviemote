@@ -74,7 +74,7 @@
  	<div class="col-md-12">
         <h3>Dein Puls & Deine Aktivität</h3>
     <div class="gradient_background" id="episode_graph"></div>
-    <div class="gradient_background" id="vis_div_activity" style="width: 600px; height: 400px;"></div>
+    <div class="gradient_background" id="vis_div_activity"></div>
     <script type="text/javascript">
 	    google.load("visualization", "1", {packages: ["corechart"]});
 	    google.setOnLoadCallback(drawChart);
@@ -107,10 +107,13 @@
 			    },
 			    chartArea: {
 				    width:'90%',
-				    height:'90%'
+				    height:'70%'
 			    },
 			    legend: {
-				    position: 'none'
+				    position: 'top',
+            textStyle: {
+              color: '#fff'
+            }
 			    },
 			    hAxis: {
 				    baselineColor: '#cfcfcf'
