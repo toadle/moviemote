@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12 poster_background" style="">
         <div class="col-md-12 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= @episode.still_path.present? ? @episode.still_path : @tv_show.backdrop_path %>)">
-          <span class="title"><%= @episode.name %></span>
+          <span class="page-title-overlay"><h2><%= @episode.name %></h2></span>
         </div>
       </div>
     </div>
@@ -44,10 +44,10 @@
         <% end %>
       </div>
     </div>
-    <div class="row gradient_background">
+    <div class="row">
       <% unless @episode_heart_beat.present? %>
         <div class="margin-top-md text-center">
-          <div class="hidden">
+          <div class="hidden gradient_background hearting">
             <svg class="heart-icon" version="1.1" width="200px" height="150px" viewBox="0 0 90.65 85.04">
               <path class="heart active" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
               M45.137,23.041c4.912-24.596,40.457-27.775,42.128-0.435c1.398,22.88-21.333,40.717-42.128,50.522 M45.137,23.041
@@ -57,8 +57,10 @@
           </div>
           <div class="visible">
             <%= simple_form_for :episode_heart_beat, url: episode_heart_beats_path, remote: true do |f| %>
-              <%= f.hidden_field :tmdb_identifier, value: @episode.id %>
-              <%= f.submit "Ich gucke diese Episode jetzt", class: "btn btn-primary btn-lg hider-button" %>
+              <div>
+                <%= f.hidden_field :tmdb_identifier, value: @episode.id %>
+                <%= f.submit "Ich gucke diese Episode jetzt", class: "btn btn-primary btn-lg hider-button" %>
+              </div>
             <% end %>
           </div>
         </div>

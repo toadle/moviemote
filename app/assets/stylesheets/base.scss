@@ -27,7 +27,7 @@ body {
   border-radius: 0px;
   padding: 20px;
   &:hover {
-    background: darken($water_leaf, 10%);
+    background: darken($water_leaf, 15%);
     color: darken($water_leaf, 50%);
   }
 }
