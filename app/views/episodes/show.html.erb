@@ -2,7 +2,9 @@
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-12 poster_background" style="">
-        <span class="title"><%= @episode.name %></span>
+        <div class="col-md-12 poster_background" style="background-image: url(http://image.tmdb.org/t/p/w500/<%= @episode.still_path.present? ? @episode.still_path : @tv_show.backdrop_path %>)">
+          <span class="title"><%= @episode.name %></span>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -10,8 +12,11 @@
         <table class="margin-top-md table table-striped table-bordered table-hover">
           <thead>
           <tr>
+            <h3><%= @tv_show.name %></h3>
+          </tr>
+          <tr>
             <th>Genre</th>
-            <th>Staffel info</th>
+            <th>Episode Info</th>
           </tr>
           </thead>
           <tbody>
@@ -20,7 +25,7 @@
               <%= @genre.name %>
             </td>
             <td>
-              <%=@episode.overview %>
+              <%= @episode.overview %>
             </td>
           </tr>
           </tbody>

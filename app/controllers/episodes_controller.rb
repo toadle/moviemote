@@ -10,6 +10,7 @@ class EpisodesController < ApplicationController
     @genre = Tmdb::Genre.detail(params[:genre_id])
     @episode_rating = EpisodeRating.where(user_id: current_user.id, tmdb_identifier: @episode.id).first
     @episode_heart_beat = EpisodeHeartBeat.where(user_id: current_user.id, tmdb_identifier: @episode.id).first
+    @tv_show = OpenStruct.new Tmdb::TV.detail(params[:tv_show_id])
   end
 
 

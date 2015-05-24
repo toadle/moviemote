@@ -5,8 +5,10 @@
         <div class="btn-group-vertical col-md-12 pull-right sidebar_backgound" role="group" aria-label="...">
           <div class="logout pull-right margin-bottom-md"><%= render 'shared/logout_link' %></div>
           <div class="user_image block-center">
-            <%= image_tag current_user.image, width: '80%', class: 'img-circle' %>
+            <%= image_tag current_user.image, width: '80%', class: 'img-thumbnail' %>
+            <div><%= "@#{current_user.name}" %></div>
           </div>
+
 
           <div class="margin-top-md">
             <button type="button" class="btn btn-default user_watchlist block-center btn-primary" data-href="<%= user_path(current_user) %>">Watchlist</button>

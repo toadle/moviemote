@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require bootstrap-rating.min
 //= require bootstrap-tagsinput
 
@@ -36,6 +37,11 @@ $( document ).ready(function() {
   $('.hider-button').on('click', function(e) {
     $(this).closest('.visible').siblings('.hidden').removeClass("hidden");
     $(this).closest('.visible').addClass("hidden");
+  });
+
+  $('.nav.nav-tabs').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
   });
 
 });

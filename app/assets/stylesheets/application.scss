@@ -23,7 +23,7 @@
   }
 }
 
-.gradient_background {
+.gradient_background, .sidebar_backgound {
   color: white;
   min-height: 300px;
   background: #422e6b; /* Old browsers */
@@ -42,7 +42,7 @@
   text-decoration: none;
   border-width: 2px;
   border-radius: 0px;
-  padding: 20px 30px; 
+  padding: 20px 30px;
   background-color: transparent;
 }
 
@@ -57,10 +57,12 @@
   }
 }
 
-.user_image {
-  padding: 0;
-
-  span.logout {
+.sidebar_backgound {
+  .logo {
+    opacity: 0.35;
+  }
+  color: $water_leaf;
+  .logout {
     position: absolute;
     left: 0;
     right: 0;
@@ -73,6 +75,22 @@
       margin-right: 5px;
     }
   }
+  .user_image {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .bootstrap-tagsinput {
+    input {
+      display: none;
+    }
+    .label-info {
+      background-color: $water_leaf;
+      color: black;
+      font-size: 95%;
+    }
+  }
+
 }
 .page-title-overlay {
   position: absolute;
@@ -108,4 +126,5 @@
   100% {
     transform: scale(1);
   }
+  background-color: rgba(0,0,0,0.5);
 }
