@@ -91,8 +91,12 @@
     <div class="text-center margin-top-md">
       <%= link_to 'Graph neu laden', tv_show_path(@tv_show.id), class: "btn btn-large btn-default" %>
       <div class="jumbotron margin-top-md">
-        <h1><%= @average %></h1>
-        <p>Dein durchschnittliches Rating für <strong><%= @tv_show.name %></strong>.</p>
+        <% if @average > 0 %>
+          <h1><%= @average %></h1>
+          <p>Dein durchschnittliches Rating für <strong><%= @tv_show.name %></strong>.</p>
+        <% else %>
+          <p>Du hast noch kein Rating für <strong><%= @tv_show.name %></strong> abgegeben.</p>
+        <% end %>
       </div>
     </div>
   </div>
