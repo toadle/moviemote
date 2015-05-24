@@ -40,7 +40,7 @@
   text-decoration: none;
   border-width: 2px;
   border-radius: 0px;
-  padding: 20px 30px; 
+  padding: 20px 30px;
   background-color: transparent;
 }
 
@@ -71,6 +71,25 @@
       margin-right: 5px;
     }
   }
+
+  .user_image {
+    text-align: center;
+    margin-top: 30px;
+    /*.img-thumbnail {
+      background-color: $water_leaf;
+    }*/
+  }
+
+  .bootstrap-tagsinput {
+    input {
+      display: none;
+    }
+    .label-info {
+      background-color: $water_leaf;
+      color: black;
+      font-size: 95%;
+    }
+  }
 }
 .page-title-overlay {
   position: absolute;
@@ -80,5 +99,5 @@
   padding: 20px;
   top: -20px;
   color: white;
-  background-color: rgba(0,0,0,0.5); 
+  background-color: rgba(0,0,0,0.5);
 }
