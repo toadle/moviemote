@@ -9,9 +9,11 @@ class TvShowsController < ApplicationController
   end
 
   def search
+    @search_query = tv_show_search_params[:query]
+
     @search = Tmdb::Search.new
     @search.resource 'tv'
-    @search.query tv_show_search_params[:query]
+    @search.query @search_query
     @results = @search.fetch.map { |result| OpenStruct.new(result) }[0..9]
   end
 

@@ -9,6 +9,7 @@
   height: 300px;
   background-size: cover;
   cursor: pointer;
+  background-color: #ccc;
 
   span.title {
     position: absolute;
@@ -40,6 +41,18 @@
   border-width: 2px;
   border-radius: 0px;
   padding: 20px 30px; 
+  background-color: transparent;
+}
+
+.btn-primary {
+  color: white;
+  border: 2px solid $water_leaf;
+  background-color: rgba($water_leaf, 0.5);
+
+  &:hover {
+    border: 2px solid darken($water_leaf, 30%);
+    background-color: $water_leaf;
+  }
 }
 
 .user_image {
@@ -58,4 +71,14 @@
       margin-right: 5px;
     }
   }
+}
+.page-title-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 20px;
+  top: -20px;
+  color: white;
+  background-color: rgba(0,0,0,0.5); 
 }
