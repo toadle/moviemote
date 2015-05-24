@@ -93,3 +93,113 @@
   color: white;
   background-color: rgba(0,0,0,0.5);
 }
+
+.gradient_background, .sidebar_backgound {
+  color: white;
+  min-height: 300px;
+  background: #422e6b; /* Old browsers */
+  background: -moz-linear-gradient(top,  #422e6b 0%, #19225b 50%, #1b163e 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#422e6b), color-stop(50%,#19225b), color-stop(100%,#1b163e)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #422e6b 0%,#19225b 50%,#1b163e 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #422e6b 0%,#19225b 50%,#1b163e 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #422e6b 0%,#19225b 50%,#1b163e 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #422e6b 0%,#19225b 50%,#1b163e 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422e6b', endColorstr='#1b163e',GradientType=0 ); /* IE6-9 */
+}
+
+.btn {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-width: 2px;
+  border-radius: 0px;
+  padding: 20px 30px;
+  background-color: transparent;
+}
+
+.btn-primary {
+  color: white;
+  border: 2px solid $water_leaf;
+  background-color: rgba($water_leaf, 0.5);
+
+  &:hover {
+    border: 2px solid darken($water_leaf, 30%);
+    background-color: $water_leaf;
+  }
+}
+
+.sidebar_backgound {
+  .logo {
+    opacity: 0.35;
+  }
+  color: $water_leaf;
+  .logout {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(255,255,255,0.5);
+
+    a {
+      color: $water_leaf;
+      text-align: right;
+      margin-right: 5px;
+    }
+  }
+  .user_image {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .bootstrap-tagsinput {
+    input {
+      display: none;
+    }
+    .label-info {
+      background-color: $water_leaf;
+      color: black;
+      font-size: 95%;
+    }
+  }
+
+}
+.page-title-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 20px;
+  top: -20px;
+  color: white;
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.heart {
+  transform-origin: bottom;
+  transition: stroke 1s 1s ease;
+}
+
+.heart.active {
+  animation: heart-beat 1s infinite linear;
+  stroke: #ec6d46;
+}
+
+@keyframes heart-beat {
+  25% {
+    transform: scale(.3); 
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+
+
