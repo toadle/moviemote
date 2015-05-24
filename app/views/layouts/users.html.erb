@@ -6,15 +6,12 @@
           <div class="logout pull-right margin-bottom-md"><%= render 'shared/logout_link' %></div>
           <div class="user_image block-center">
             <%= image_tag current_user.image, width: '80%', class: 'img-thumbnail' %>
-            <div><%= "@#{current_user.name}" %></div>
+            <h2><%= "@#{current_user.name}" %></h2>
           </div>
 
 
           <div class="margin-top-md">
             <button type="button" class="btn btn-default user_watchlist block-center btn-primary" data-href="<%= user_path(current_user) %>">Watchlist</button>
-          </div>
-          <div class="margin-top-md">
-            <button type="button" class="block-center btn btn-primary">What i see before</button>
           </div>
           <div class="text-left margin-top-md">Loved categories
             <input type="text" data-role="tagsinput" value="Bankrobber, Gangsterseries, Politicaldrama"/>
