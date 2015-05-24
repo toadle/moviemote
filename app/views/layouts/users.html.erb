@@ -2,29 +2,33 @@
   <div class="row">
     <div class="col-md-3">
       <%= area :sidebar do %>
-          <div class="btn-group-vertical col-md-12 pull-right" role="group" aria-label="...">
-            <div class="user_image col-md-12 pull-right">
-              <span class="logout"><%= render 'shared/logout_link' %></span>
-              <%= image_tag current_user.image, width: '100%', class: 'img-circle' %>
-            </div>
-
-            <div class="margin-top-md">
-              <button type="button" class="btn btn-default user_watchlist block-center" data-href="<%= user_path(current_user) %>">Wishlist</button>
-            </div>
-            <div class="margin-top-md">
-              <button type="button" class="block-center btn btn-default">What i see before</button>
-            </div>
-            <div class="text-center margin-top-md">Loved categories
-              <input type="text" data-role="tagsinput" value="Bankrobber, Gangsterseries, Politicaldrama"/>
-            </div>
-
-            <div class="margin-top-md">
-              <%= simple_form_for :tv_show_search, url: search_tv_shows_path do |f| %>
-                <%= f.input :query, label: "Neue Serien hinzufügen", placeholder: "Suche nach Serien...", input_html: {class: "input-lg"} %>
-              <% end %>
-            </div>
-          <% end %>
+        <div class="btn-group-vertical col-md-12 pull-right sidebar_backgound" role="group" aria-label="...">
+          <div class="logout pull-right margin-bottom-md"><%= render 'shared/logout_link' %></div>
+          <div class="user_image block-center">
+            <%= image_tag current_user.image, width: '80%', class: 'img-circle' %>
           </div>
+
+          <div class="margin-top-md">
+            <button type="button" class="btn btn-default user_watchlist block-center btn-primary" data-href="<%= user_path(current_user) %>">Watchlist</button>
+          </div>
+          <div class="margin-top-md">
+            <button type="button" class="block-center btn btn-primary">What i see before</button>
+          </div>
+          <div class="text-left margin-top-md">Loved categories
+            <input type="text" data-role="tagsinput" value="Bankrobber, Gangsterseries, Politicaldrama"/>
+          </div>
+
+          <div class="margin-top-md">
+            <%= simple_form_for :tv_show_search, url: search_tv_shows_path do |f| %>
+              <%= f.input :query, label: "Neue Serien hinzufügen", placeholder: "Suche nach Serien...", input_html: {class: "input-lg"} %>
+            <% end %>
+          </div>
+
+          <div class="logo">
+            <%=image_tag "moviemote-logo.svg", class:"logo block-center", width:"200" %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="col-md-9">
       <%= area :content do %>
