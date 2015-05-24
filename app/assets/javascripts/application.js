@@ -33,4 +33,9 @@ $( document ).ready(function() {
     window.location = $(this).data('href');
   });
 
+  $('.hider-button').on('click', function(e) {
+    $(this).closest('.visible').siblings('.hidden').removeClass("hidden");
+    $(this).closest('.visible').addClass("hidden");
+  });
+
 });

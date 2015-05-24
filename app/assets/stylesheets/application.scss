@@ -24,6 +24,8 @@
 }
 
 .gradient_background {
+  color: white;
+  min-height: 300px;
   background: #422e6b; /* Old browsers */
   background: -moz-linear-gradient(top,  #422e6b 0%, #19225b 50%, #1b163e 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#422e6b), color-stop(50%,#19225b), color-stop(100%,#1b163e)); /* Chrome,Safari4+ */
@@ -81,4 +83,29 @@
   top: -20px;
   color: white;
   background-color: rgba(0,0,0,0.5); 
+}
+
+.heart {
+  transform-origin: bottom;
+  transition: stroke 1s 1s ease;
+}
+
+.heart.active {
+  animation: heart-beat 1s infinite linear;
+  stroke: #ec6d46;
+}
+
+@keyframes heart-beat {
+  25% {
+    transform: scale(.3); 
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
